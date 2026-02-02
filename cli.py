@@ -23,6 +23,10 @@ def main():
     scraper = PriceScraper()
 
     if args.comando == "add":
+        if not args.url.startswith("http"):
+            print("Erro: A URL precisa começar com http:// ou https://")
+            return
+
         print(f"Buscando informações em {args.url}...")
         nome, preco = scraper.scrape(args.url)
         
