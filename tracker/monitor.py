@@ -37,4 +37,4 @@ class PriceMonitor:
             except Exception as e:
                 print(f"Erro ao processar {p.name}: {e}")
 
-        print("Monitoramento finalizado.")
+        print(f"[{datetime.now().strftime('%d/%m/%Y %H:%M')}] Monitoramento finalizado. Aguardando próxima rodada...")
