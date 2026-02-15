@@ -37,7 +37,8 @@ class PriceScraper:
                 price_str = price_str.replace(',', '.')
             
             price_str = re.sub(r'[^\d.]', '', price_str)
-            return float(price_str)
+            price = float(price_str)
+            return price if price > 0 else None
         except ValueError:
             return None
 
