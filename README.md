@@ -67,18 +67,36 @@ python main.py --now
 
 ---
 
-## Estrutura
+## Exemplos Reais de Uso
 
+### No terminal (CLI)
 ```text
-tracker/
-├── scraper.py
-├── storage.py
-├── monitor.py
-├── notifier.py
-├── models.py
-main.py
-cli.py
+PS C:\Users\llpz7\Desktop\tracker-price> python cli.py add https://www.amazon.com.br/dp/B0F7J2KKFW
+Buscando informações em https://www.amazon.com.br/dp/B0F7J2KKFW...
+Produto adicionado: Massageador Facial LED (ID: 1) - Preço: R$ 305,00
 ```
+
+### No Monitoramento
+```text
+PS C:\Users\llpz7\Desktop\tracker-price> python main.py --agora
+Rastreador de Preços iniciado! Vou verificar a cada 60 minutos.
+[18/04/2026 16:41] Iniciando checagem de 1 produtos...
+Verificando Massageador Facial LED...
+Sem alteração para Massageador Facial LED
+Monitoramento finalizado.
+```
+
+---
+
+## Estrutura do Projeto
+
+*   `tracker/scraper.py`: Inteligência de extração via BeautifulSoup.
+*   `tracker/storage.py`: Gerenciamento do banco de dados SQLite (com modo WAL).
+*   `tracker/monitor.py`: Lógica central de monitoramento e alertas.
+*   `tracker/notifier.py`: Sistema de avisos no terminal e notificações sistêmicas.
+*   `tracker/models.py`: Classes de dados (Produto e Histórico).
+*   `main.py`: Serviço de agendamento automático.
+*   `cli.py`: Interface de linha de comando.
 
 ---
 
@@ -96,4 +114,4 @@ cli.py
 * Seletores precisam ser ajustados dependendo do site
 * Não utiliza proxies ou headless browser por padrão
 
-Feito por fernandes dev hehe
+Feito por fernandes dev hehe (em constante evolução)
